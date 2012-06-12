@@ -1,0 +1,14 @@
+{
+  "author": "",
+  "name": "stratasapp",
+  "description": "strata",
+  "version": "0.0.0",
+  "dependencies": {
+    "strata": "~0.15.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

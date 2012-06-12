@@ -1,11 +1,10 @@
 var strata = require("strata");
 
-strata.use(strata.commonLogger);
-strata.use(strata.contentType, "text/plain");
-strata.use(strata.contentLength);
+strata.run(function (env, callback) {
+    var headers = {
+        "Content-Type": "text/plain",
+        "Content-Length": "12"
+    };
 
-strata.get("/", function (env, callback) {
-    callback(200, {}, "Hello world!");
+    callback(200, headers, "Hello world!");
 });
-
-strata.run();

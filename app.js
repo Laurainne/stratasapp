@@ -1,8 +1,8 @@
 var strata =require('strata');
-var inspect = require('uutil').inspect;
+var inspect = require('util').inspect;
 
 var db = {
-	tim: "noderocks"
+	tim: "noderocks",
 	lauren:"michelle"
 }
 strata.use(strata.commonLogger);
@@ -25,10 +25,17 @@ strata.post("/login", function (env, callback) {
 		}
 		else {
 			strata.redirect(env, callback, "/login.htmml");
-;		}
-		console.log(params)
+		}
 	});
 
+});
+
+strata.get("/", function (env, callback) {
+	if (!env.session.username) {
+		strata.redirect(env, callback, "login.html");
+		return;
+	}
+	callback(200, {}, "Welcome!" + env.session.username + "\n");
 });
 
 strata.run();
